@@ -272,7 +272,8 @@
                                 </div>
                             </div>
                             <!--End Section Tittle  -->
-                            <form id="contact-form" action="{{route('saveConsultation')}}" method="GET">
+                            <form id="contact-form" action="{{url('saveConsultation')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box user-icon mb-30">

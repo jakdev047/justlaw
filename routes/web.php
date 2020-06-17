@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/frontsite', 'FrontendController@index');
-Route::get('/saveConsultation', 'FrontendController@saveConsultation')->name('saveConsultation');
+Route::post('/saveConsultation', 'FrontendController@saveConsultation')->name('saveConsultation');
