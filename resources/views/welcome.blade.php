@@ -272,7 +272,7 @@
                                 </div>
                             </div>
                             <!--End Section Tittle  -->
-                            <form id="contact-form" action="#" method="POST">
+                            <form id="contact-form" action="{{route('saveConsultation')}}" method="GET">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box user-icon mb-30">
@@ -636,7 +636,6 @@
             </div>
         </div>
         <!-- Testimonial End -->
-
 
         <!-- Team Mates Start -->
         <div class="teams-area section-padding30">

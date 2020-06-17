@@ -10,4 +10,13 @@ class FrontendController extends Controller
     public function index() {
         return view('welcome');
     }
+
+    // form data capture
+    public function saveConsultation(Request $request){
+        echo $request->input('name');
+        echo $request->input('email');
+        echo $request->input('select');
+        echo $request->input('subject');
+        echo $request->input('message');
+    }
 }
