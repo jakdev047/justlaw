@@ -17,5 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/frontsite', 'FrontendController@index');
-Route::post('/saveConsultation', 'FrontendController@saveConsultation')->name('saveConsultation');
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
