@@ -10,4 +10,18 @@ class UserController extends Controller
     public function loginform(){
         return view('login');
     }
+
+    // checklogin
+    public function checklogin(Request $request){
+        // form data capture
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        if($username == 'admin' && $password == '00012'){
+            return redirect()->route('home');
+        }
+        else{
+            return view('login');
+        }
+    }
 }
