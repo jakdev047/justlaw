@@ -26,4 +26,14 @@ class UserController extends Controller
             return view('login');
         }
     }
+
+    // registrationform
+    public function registrationform(){
+        return view('registration');
+    }
+
+    // registrationsave
+    public function registrationsave(Request $request){
+        echo 'Registration';
+    }
 }

@@ -23,3 +23,7 @@ Route::get('/about', function () {
 // login route
 Route::get('/login','UserController@loginform');
 Route::post('/checklogin','UserController@checklogin')->name('checklogin');
+
+// registration route
+Route::get('/registration','UserController@registrationform')->name('registration');
+Route::post('/registrationsave','UserController@registrationsave')->name('registrationsave');
