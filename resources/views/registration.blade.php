@@ -29,7 +29,12 @@
         <div class="container">
             <form class="form-login" action="{{route('registrationsave')}}" method="post">
                 @csrf
-                <h2 class="form-login-heading"> Registration </h2>
+                <h2 class="form-login-heading">
+                    Registration
+                    @if(Session::has('message'))
+                    {{Session::get('message')}}
+                    @endif
+                </h2>
                 <div class="login-wrap">
                     <input type="text" name="username" class="form-control" placeholder="User ID" autofocus>
                     <br>
