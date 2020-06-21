@@ -29,7 +29,13 @@
         <div class="container">
             <form class="form-login" action="{{route('checklogin')}}" method="post">
                 @csrf
-                <h2 class="form-login-heading">sign in now</h2>
+                <h2 class="form-login-heading">
+                    sign in now
+
+                    @if(Session::has('message'))
+                    {{Session::get('message')}}
+                    @endif
+                </h2>
                 <div class="login-wrap">
                     <input type="text" name="username" class="form-control" placeholder="User ID" autofocus>
                     <br>
@@ -42,11 +48,6 @@
                     </label>
                     <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
                     <hr>
-                    <div class="login-social-link centered">
-                        <p>or you can sign in via your social network</p>
-                        <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-                        <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-                    </div>
                     <div class="registration">
                         Don't have an account yet?<br/>
                         <a class="" href="#">
