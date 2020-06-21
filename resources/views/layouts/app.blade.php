@@ -134,7 +134,7 @@
                     </li>
                     <li>
                         <a href="index.html#">
-                        <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                        <span class="photo"><img alt="avatar" src="{{asset('img/ui-zac.jpg')}}"></span>
                         <span class="subject">
                         <span class="from">Zac Snider</span>
                         <span class="time">Just now</span>
@@ -146,7 +146,7 @@
                     </li>
                     <li>
                         <a href="index.html#">
-                        <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                        <span class="photo"><img alt="avatar" src="{{asset('img/ui-divya.jpg')}}"></span>
                         <span class="subject">
                         <span class="from">Divya Manian</span>
                         <span class="time">40 mins.</span>
@@ -158,7 +158,7 @@
                     </li>
                     <li>
                         <a href="index.html#">
-                        <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                        <span class="photo"><img alt="avatar" src="{{asset('img/ui-danro.jpg')}}"></span>
                         <span class="subject">
                         <span class="from">Dan Rogers</span>
                         <span class="time">2 hrs.</span>
@@ -170,7 +170,7 @@
                     </li>
                     <li>
                         <a href="index.html#">
-                        <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                        <span class="photo"><img alt="avatar" src="{{asset('img/ui-sherman.jpg')}}"></span>
                         <span class="subject">
                         <span class="from">Dj Sherman</span>
                         <span class="time">4 hrs.</span>
@@ -250,7 +250,7 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+                <p class="centered"><a href="profile.html"><img src="{{asset('img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
                 <h5 class="centered">Sam Soffes</h5>
                 <li class="mt">
                     <a class="active" href="index.html">
