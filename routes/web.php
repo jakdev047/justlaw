@@ -33,3 +33,8 @@ Route::get('/logout','UserController@logout')->name('logout');
 // role
 Route::get('/roleform','UserController@roleform')->name('roleform');
 Route::get('/showrollall','UserController@showrollall')->name('showrollall');
+
+
+// category
+Route::get('/categoryform','CategoryController@categoryform')->name('categoryform');
+Route::get('/showcatall','CategoryController@showcatall')->name('showcatall');

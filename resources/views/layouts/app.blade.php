@@ -272,6 +272,16 @@
                             <li><a href="{{route('showrollall')}}">Show </a></li>
                         </ul>
                     </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Category</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{route('categoryform')}}">Create</a></li>
+                            <li><a href="{{route('showcatall')}}">Show </a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- sidebar menu end-->
             </div>
