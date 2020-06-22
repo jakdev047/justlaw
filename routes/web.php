@@ -30,5 +30,6 @@ Route::post('/registrationsave','UserController@registrationsave')->name('regist
 Route::get('/logout','UserController@logout')->name('logout');
 
 
-// roleform
+// role
 Route::get('/roleform','UserController@roleform')->name('roleform');
+Route::get('/showrollall','UserController@showrollall')->name('showrollall');

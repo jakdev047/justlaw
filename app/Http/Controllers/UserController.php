@@ -68,5 +68,16 @@ class UserController extends Controller
             return redirect()->route('login');
         }
     }
+
+    // showrollall
+    public function showrollall() {
+        if(Session::has(('username'))) {
+            return view('showrollall');
+        }
+        else {
+            Session::flash('message','Please login');
+            return redirect()->route('login');
+        }
+    }
 }
 
