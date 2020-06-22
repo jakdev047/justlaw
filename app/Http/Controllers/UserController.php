@@ -57,5 +57,16 @@ class UserController extends Controller
         Session::flash('message','Successfully logout');
         return redirect()->route('login');
     }
+
+    // roleform
+    public function roleform() {
+        if(Session::has(('username'))) {
+            return view('role');
+        }
+        else {
+            Session::flash('message','Please login');
+            return redirect()->route('login');
+        }
+    }
 }
-// http://localhost/demo/justlaw/public/home
+

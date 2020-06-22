@@ -2,16 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/* All Web Routes */
 
 // home page
 Route::get('/home', 'HomeController@home')->name('home');
@@ -37,3 +28,7 @@ Route::post('/registrationsave','UserController@registrationsave')->name('regist
 
 // logout route
 Route::get('/logout','UserController@logout')->name('logout');
+
+
+// roleform
+Route::get('/roleform','UserController@roleform')->name('roleform');
