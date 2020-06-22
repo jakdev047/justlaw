@@ -50,4 +50,12 @@ class UserController extends Controller
         Session::flash('message','Registration Complete');
         return redirect()->route('registration');
     }
+
+    // logout
+    public function logout(Request $request){
+        $request->session()->forget('username');
+        Session::flash('message','Successfully logout');
+        return redirect()->route('login');
+    }
 }
+// http://localhost/demo/justlaw/public/home

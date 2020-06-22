@@ -21,9 +21,12 @@ Route::get('/about', function () {
 });
 
 // login route
-Route::get('/login','UserController@loginform');
+Route::get('/login','UserController@loginform')->name('login');
 Route::post('/checklogin','UserController@checklogin')->name('checklogin');
 
 // registration route
 Route::get('/registration','UserController@registrationform')->name('registration');
 Route::post('/registrationsave','UserController@registrationsave')->name('registrationsave');
+
+// logout route
+Route::get('/logout','UserController@logout')->name('logout');
