@@ -19,8 +19,15 @@ class UserController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        if($username == 'admin' && $password == '00012'){
-            return redirect()->route('home');
+        $users = DB::select('select * from user where username = ? and password = ?', [$username,$password]);
+
+        if( count($users) > 0 ) {
+            foreach($users as $user){
+                $request->session()->put('username',$user->username);
+                if($username == $user->username && $password == $user->password){
+                    return redirect()->route('home');
+                }
+            }
         }
         else{
             Session::flash('message','Invalid Username or Password');
