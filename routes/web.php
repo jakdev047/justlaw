@@ -16,8 +16,15 @@ use Illuminate\Support\Facades\Route;
 // home page
 Route::get('/home', 'HomeController@home')->name('home');
 
+// about page
 Route::get('/about', function () {
-    return view('about');
+    if(Session::has(('username'))) {
+        return view('about');
+    }
+    else {
+        Session::flash('message','Please login');
+        return redirect()->route('login');
+    }
 });
 
 // login route
