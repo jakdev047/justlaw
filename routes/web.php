@@ -38,3 +38,7 @@ Route::get('/showrollall','UserController@showrollall')->name('showrollall');
 // category
 Route::get('/categoryform','CategoryController@categoryform')->name('categoryform');
 Route::get('/showcatall','CategoryController@showcatall')->name('showcatall');
+
+// product
+Route::get('/productform','ProductCntroller@productform')->name('productform');
+Route::get('/showproall','ProductCntroller@showproall')->name('showproall');
