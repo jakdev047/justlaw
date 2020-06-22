@@ -29,7 +29,9 @@
                 <td><?php echo $serial;?></td>
                 <td><?php echo $category->name;?></td>
                 <td class="hidden-phone"><?php echo $category->code;?></td>
-                <td class="center hidden-phone">Edit || Delete</td>
+                <td class="center hidden-phone">
+                    <a href="#">Edit</a> || <a href="{{url('catdelete')}}/{{$category->id}}">Delete</a>
+                </td>
             </tr>
             <?php
                 }
