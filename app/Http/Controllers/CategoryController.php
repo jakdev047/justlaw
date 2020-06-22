@@ -21,7 +21,8 @@ class CategoryController extends Controller {
     // showcatall
     public function showcatall() {
         if(Session::has(('username'))) {
-            return view('showcatall');
+            $categories = DB::select('select * from categories');
+            return view('showcatall',['categories'=>$categories]);
         }
         else {
             Session::flash('message','Please login');

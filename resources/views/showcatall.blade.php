@@ -20,12 +20,20 @@
             </tr>
         </thead>
         <tbody>
+            <?php
+                $serial = 0;
+                foreach ($categories as $category) {
+                    $serial +=1;
+            ?>
             <tr class="gradeX">
-                <td>1</td>
-                <td>Role Name</td>
-                <td class="hidden-phone">Role Code</td>
+                <td><?php echo $serial;?></td>
+                <td><?php echo $category->name;?></td>
+                <td class="hidden-phone"><?php echo $category->code;?></td>
                 <td class="center hidden-phone">Edit || Delete</td>
             </tr>
+            <?php
+                }
+            ?>
         </tbody>
         </table>
     </div>
