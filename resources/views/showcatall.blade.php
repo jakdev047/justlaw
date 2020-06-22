@@ -4,6 +4,11 @@
 <div class="row mb">
     <!-- page start-->
     <div class="content-panel">
+    <h4>
+        @if(Session::has('message'))
+        {{Session::get('message')}}
+        @endif
+    </h4>
     <div class="adv-table">
         <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
         <thead>
