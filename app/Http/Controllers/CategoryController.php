@@ -53,4 +53,15 @@ class CategoryController extends Controller {
         $category = DB::table('categories')->where('id',$id)->first();
         return view('editcat',compact('category'));
     }
+
+    // catupdate
+    public function catupdate(Request $request,$id) {
+
+        $name=$request->input('name');
+        $code=$request->input('code');
+
+        $category=DB::select('UPDATE categories SET name=?, code=? WHERE id=?',[$name,$code,$id]);
+        Session::flash('message','Category successfully updated');
+        return redirect()->route('showcatall');
+    }
 }

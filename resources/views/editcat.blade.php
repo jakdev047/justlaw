@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i> Create Category</h4>
-            <form class="form-login" action="#" method="post">
+            <form class="form-login" action="{{url('catupdate/'.$category->id)}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label class="sr-only" for="name">Category Name</label>
