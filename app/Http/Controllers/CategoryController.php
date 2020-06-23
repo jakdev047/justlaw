@@ -43,8 +43,14 @@ class CategoryController extends Controller {
 
     // catdelete
     public function catdelete($id){
-        DB::select('delete from categories where id =?', [$id]);
-        Session::flash('message','Successfully category Deleted');
-        return redirect()->route('showcatall');
+      DB::select('delete from categories where id =?', [$id]);
+      Session::flash('message','Successfully category Deleted');
+      return redirect()->route('showcatall');
+    }
+
+    // catedit
+    public function catedit($id) {
+        $category = DB::table('categories')->where('id',$id)->first();
+        return view('editcat',compact('category'));
     }
 }

@@ -41,6 +41,8 @@ Route::post('/catsave','CategoryController@catsave')->name('catsave');
 Route::get('/showcatall','CategoryController@showcatall')->name('showcatall');
 Route::get('/catdelete/{id}','CategoryController@catdelete')->name('catdelete');
 
+Route::get('/catedit/{id}','CategoryController@catedit')->name('catedit');
+
 // product
 Route::get('/productform','ProductCntroller@productform')->name('productform');
 Route::get('/showproall','ProductCntroller@showproall')->name('showproall');
