@@ -79,8 +79,17 @@ class ProductCntroller extends Controller
 
     // prodelete
     public function prodelete($id){
-      DB::select('delete from product where id =?', [$id]);
-      Session::flash('message','Successfully product Deleted');
-      return redirect()->route('showproall');
+        // single item collect
+        $delete = DB::table('product')->where('id',$id)->first();
+
+        // photo  delete
+        $feature_image = $delete->feature_image;
+        $done = unlink($feature_image);
+
+        DB::select('delete from product where id =?', [$id]);
+
+
+        Session::flash('message','Successfully product Deleted');
+        return redirect()->route('showproall');
     }
 }
