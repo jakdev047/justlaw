@@ -68,7 +68,8 @@ class ProductCntroller extends Controller
     // showproall
     public function showproall() {
         if(Session::has(('username'))) {
-            return view('showproall');
+            $product = DB::select('select * from product');
+            return view('showproall',['product'=>$product]);
         }
         else {
             Session::flash('message','Please login');
