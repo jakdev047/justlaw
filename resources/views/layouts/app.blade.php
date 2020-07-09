@@ -257,7 +257,7 @@
                         @endif
                     </h5>
                     <li class="mt">
-                        <a class="active" href="index.html">
+                        <a class="active" href="{{route('home')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                         </a>
