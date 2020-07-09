@@ -76,4 +76,11 @@ class ProductCntroller extends Controller
             return redirect()->route('login');
         }
     }
+
+    // prodelete
+    public function prodelete($id){
+      DB::select('delete from product where id =?', [$id]);
+      Session::flash('message','Successfully product Deleted');
+      return redirect()->route('showproall');
+    }
 }

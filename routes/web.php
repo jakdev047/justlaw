@@ -48,3 +48,4 @@ Route::post('/catupdate/{id}','CategoryController@catupdate')->name('catupdate')
 Route::get('/productform','ProductCntroller@productform')->name('productform');
 Route::post('/saveproduct','ProductCntroller@saveproduct')->name('saveproduct');
 Route::get('/showproall','ProductCntroller@showproall')->name('showproall');
+Route::get('/prodelete/{id}','ProductCntroller@prodelete')->name('prodelete');
