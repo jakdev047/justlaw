@@ -92,4 +92,10 @@ class ProductCntroller extends Controller
         Session::flash('message','Successfully product Deleted');
         return redirect()->route('showproall');
     }
+
+    // proedit
+    public function proedit($id) {
+        $product = DB::table('product')->where('id',$id)->first();
+        return view('editpro',compact('product'));
+    }
 }

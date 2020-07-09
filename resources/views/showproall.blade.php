@@ -45,7 +45,7 @@
                 <td class="hidden-phone"><?php echo $item->rating;?></td>
                 <td class="hidden-phone"><?php echo $item->product_info;?></td>
                 <td class="center hidden-phone">
-                    <a href="#">Edit</a> || <a href="{{url('prodelete')}}/{{$item->id}}">Delete</a>
+                    <a href="{{url('proedit')}}/{{$item->id}}">Edit</a> || <a href="{{url('prodelete')}}/{{$item->id}}">Delete</a>
                     {{-- <a href="{{url('catedit')}}/{{$item->id}}">Edit</a> || <a href="{{url('catdelete')}}/{{$item->id}}">Delete</a> --}}
                 </td>
             </tr>

@@ -49,3 +49,5 @@ Route::get('/productform','ProductCntroller@productform')->name('productform');
 Route::post('/saveproduct','ProductCntroller@saveproduct')->name('saveproduct');
 Route::get('/showproall','ProductCntroller@showproall')->name('showproall');
 Route::get('/prodelete/{id}','ProductCntroller@prodelete')->name('prodelete');
+
+Route::get('/proedit/{id}','ProductCntroller@proedit')->name('proedit');
