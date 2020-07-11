@@ -56,3 +56,6 @@ Route::get('/prodelete/{id}','ProductCntroller@prodelete')->name('prodelete');
 
 Route::get('/proedit/{id}','ProductCntroller@proedit')->name('proedit');
 Route::post('/proupdate/{id}', 'ProductCntroller@proupdate')->name('proupdate');
+
+// gallary product
+Route::get('/showgallaryall','GallaryProductController@showgallaryall')->name('showgallaryall');

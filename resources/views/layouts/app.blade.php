@@ -298,6 +298,15 @@
                             <li><a href="{{route('showproall')}}">Show </a></li>
                         </ul>
                     </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Gallary Product</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{route('showgallaryall')}}">Show </a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- sidebar menu end-->
             </div>
