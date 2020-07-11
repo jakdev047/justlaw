@@ -70,27 +70,23 @@
 
 
     <script>
-        function add(){
+         function add(){
             let field = `
                 <div class="row">
                             <div class="col-md-10">
                                 <div class="form-group">
-
                                     <input type="file" class="form-control" name="images[]" required>
                                 </div>
                             </div>
-
                             <div class="col-md-1 col pt-md-2 pt-0">
-                                    <button type="button" class="remove mt-md-4 mt-0 mb-2 mb-md-0 btn btn-danger"><i class="fa fa-times-circle"></i></button>
+                                <button type="button" class="remove mt-md-4 mt-0 mb-2 mb-md-0 btn btn-danger"><i class="fa fa-times-circle"></i></button>
                             </div>
                         </div>
             `;
             $("#input_fields").append(field);
-
             $(document).on('click', '.remove', function(){
                 $(this).parent('.col').parent('.row').remove();
             });
-
         }
 
         function readURL(input){

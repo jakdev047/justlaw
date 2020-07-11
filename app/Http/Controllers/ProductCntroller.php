@@ -55,17 +55,17 @@ class ProductCntroller extends Controller
             }
 
             // gallary image insert
-            // $count =  count($request->images);
-            // $product_last_id = DB::getPdo()->lastInsertId();
-            // for ($i = 0; $i < count($request->images); $i++) {
-            //     $images = $request->images;
-            //     $image = $images[$i];
-            //     $name = time() . $i . '.' . $image->getClientOriginalExtension();
-            //     $destinationPath = public_path('product-image');
-            //     $image->move($destinationPath, $name);
-            //     $image_url = 'product-image/' . $name;
-            //     DB::insert('insert into product_image(product_id,image_url)value(?,?)',[$product_last_id,$image_url]);
-            // }
+            $count =  count($request->images);
+            $product_last_id = DB::getPdo()->lastInsertId();
+            for ($i = 0; $i < count($request->images); $i++) {
+                $images = $request->images;
+                $image = $images[$i];
+                $name = time() . $i . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('image/gallary-product');
+                $image->move($destinationPath, $name);
+                $image_url = 'image/gallary-product/' . $name;
+                DB::insert('insert into product_image(product_id,image_url)value(?,?)',[$product_last_id,$image_url]);
+            }
 
             // successfully message
 		    Session::flash('message',' added successfully!');
