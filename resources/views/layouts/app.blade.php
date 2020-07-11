@@ -257,7 +257,13 @@
                         @endif
                     </h5>
                     <li class="mt">
-                        <a class="active" href="{{route('home')}}">
+                        <a href="{{route('home')}}" target="_blank">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Web View</span>
+                        </a>
+                    </li>
+                    <li class="mt">
+                        <a class="active" href="{{route('dashboard')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                         </a>

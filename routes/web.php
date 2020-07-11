@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 /* All Web Routes */
 
-// home page
+// frontside
+// dashboard page
 Route::get('/home', 'HomeController@home')->name('home');
+
+// dashboard page
+Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
 // about page
 Route::get('/about', function () {

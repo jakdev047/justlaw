@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // home page
-    public function home () {
+    // dashboard page
+    public function dashboard () {
         if(Session::has(('username'))) {
-            return view('home');
+            return view('dashboard');
         }
         else {
             Session::flash('message','Please login');
             return redirect()->route('login');
         }
+    }
+
+    // home page
+    public function home () {
+        return view('frontend.home');
     }
 }
