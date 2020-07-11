@@ -53,7 +53,8 @@
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="feature_image">Feature Image</label>
-                    <input type="file" name="feature_image">
+                    <input type="file" class="form-control" name="feature_image"  onchange="readURL(this);" required >
+                    <img id="image" src="#" alt="">
                 </div>
                 <div class="form-group">
                     <label  class="control-label"> Product Gallary Photo</label>
@@ -90,6 +91,16 @@
                 $(this).parent('.col').parent('.row').remove();
             });
 
+        }
+
+        function readURL(input){
+            if(input.files && input.files[0] ) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#image').attr('src',e.target.result).width(120).height(120);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
         }
     </script>
 </div><!-- /row -->

@@ -66,9 +66,40 @@
                         {{$product->product_info}}
                     </textarea>
                 </div>
+                <div class="form-group">
+                    <label for="old_photo">Old Photo</label> <br>
+                    <img    src="{{URL::to($product->feature_image)}}"
+                            name="old_photo"
+                            style="width:120px;height:120px;"
+                    >
+                    <input type="hidden" name="old_photo" value="{{$product->feature_image}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="feature_image">New Photo</label> <br>
+                    <img id="image" src="#">
+                    <input type="file"
+                            class="form-control upload"
+                            name="feature_image"
+                            onchange="readURL(this);"
+                    >
+                </div>
                 <button type="submit" class="btn btn-theme">Edit</button>
             </form>
         </div><!-- /form-panel -->
     </div><!-- /col-lg-12 -->
+
+    <script>
+        function readURL(input){
+            if(input.files && input.files[0] ) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#image').attr('src',e.target.result).width(120).height(120);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
 </div><!-- /row -->
 @endsection
