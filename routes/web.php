@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 /* All Web Routes */
 
-// frontside
-// dashboard page
-Route::get('/home', 'HomeController@home')->name('home');
+/* ==================
+    Frontend route
+=====================*/
 
-// dashboard page
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+// home page
+Route::get('/home', 'HomeController@home')->name('home');
 
 // about page
 Route::get('/about', function () {
@@ -22,6 +22,10 @@ Route::get('/about', function () {
     }
 });
 
+/* ===================
+    admin route
+===================== */
+
 // login route
 Route::get('/login','UserController@loginform')->name('login');
 Route::post('/checklogin','UserController@checklogin')->name('checklogin');
@@ -33,11 +37,12 @@ Route::post('/registrationsave','UserController@registrationsave')->name('regist
 // logout route
 Route::get('/logout','UserController@logout')->name('logout');
 
+// dashboard page
+Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
 // role
 Route::get('/roleform','UserController@roleform')->name('roleform');
 Route::get('/showrollall','UserController@showrollall')->name('showrollall');
-
 
 // category
 Route::get('/categoryform','CategoryController@categoryform')->name('categoryform');
