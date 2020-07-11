@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i> Create Category</h4>
-            <form class="form-login" action="#" method="post">
+            <form class="form-login" action="{{url('proupdate/'.$product->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
 

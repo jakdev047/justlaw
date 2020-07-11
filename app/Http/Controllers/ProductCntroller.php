@@ -111,4 +111,51 @@ class ProductCntroller extends Controller
         $product = DB::table('product')->where('id',$id)->first();
         return view('editpro',compact('product'));
     }
+
+    // proupdate
+    public function proupdate(Request $request,$id){
+        if(Session::has(('username'))) {
+            // data capture
+            $data = array();
+            $data['title'] = $request->title;
+            $data['buy_price'] = $request->buy_price;
+            $data['regular_price'] = $request->regular_price;
+            $data['flate_price'] = $request->flate_price;
+            $data['shortdes'] = $request->shortdes;
+            $data['tag'] = $request->tag;
+            $data['quantity'] = $request->quantity;
+            $data['rating'] = $request->rating;
+            $data['product_info'] = $request->product_info;
+            $data['cat_id'] = $request->cat_id;
+
+            // feature image insert
+            $feature_image=$request->feature_image;
+
+            // for feature image
+            if($feature_image){
+                $image_name = Str::random(20); // image name
+                $ext = strtolower($feature_image->getClientOriginalExtension()); // image original mname
+                $image_full_name = $image_name.'.'.$ext;
+                $upload_path = 'image/products/'; //upload path
+                $image_url = $upload_path.$image_full_name;
+                $success = $feature_image->move($upload_path,$image_full_name);
+                if($success) {
+                    $data['feature_image']=$image_url;
+                    $img=DB::table('product')->where('id',$id)->first();
+                    $image_path = $img->feature_image;
+                    $done=unlink($image_path);
+                    DB::table('product')->where('id',$id)->update($data);
+                }
+            }
+
+            // successfully message
+		    Session::flash('message',' Updated successfully!');
+            return redirect()->route('showproall');
+
+        }
+        else {
+            Session::flash('message','Please login');
+            return redirect()->route('login');
+        }
+    }
 }
