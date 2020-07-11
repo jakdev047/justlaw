@@ -59,3 +59,4 @@ Route::post('/proupdate/{id}', 'ProductCntroller@proupdate')->name('proupdate');
 
 // gallary product
 Route::get('/showgallaryall','GallaryProductController@showgallaryall')->name('showgallaryall');
+Route::get('/gallarydelete/{id}','GallaryProductController@gallarydelete')->name('gallarydelete');

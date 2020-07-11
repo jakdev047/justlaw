@@ -32,8 +32,7 @@
                 </td>
                 <td class="hidden-phone"><?php echo $item->product_id;?></td>
                 <td class="center hidden-phone">
-                    <a href="#"> Edit </a> || <a href="#">Delete</a>
-                    {{-- <a href="{{url('catedit')}}/{{$category->id}}">Edit</a> || <a href="{{url('catdelete')}}/{{$category->id}}">Delete</a> --}}
+                    <a href="{{url('gallarydelete')}}/{{$item->id}}">Delete</a>
                 </td>
             </tr>
             <?php
