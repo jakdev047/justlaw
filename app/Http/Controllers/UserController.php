@@ -26,7 +26,7 @@ class UserController extends Controller
                 $request->session()->put('username',$user->username);
                 $request->session()->put('userid',$user->id);
                 if($username == $user->username && $password == $user->password){
-                    return redirect()->route('home');
+                    return redirect()->route('dashboard');
                 }
             }
         }

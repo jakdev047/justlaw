@@ -128,6 +128,9 @@ class ProductCntroller extends Controller
             $data['product_info'] = $request->product_info;
             $data['cat_id'] = $request->cat_id;
 
+            // var_dump($data);
+            // exit();
+
             // feature image insert
             $feature_image=$request->feature_image;
 
@@ -148,19 +151,7 @@ class ProductCntroller extends Controller
                 }
             }
 
-            // gallary image insert
-            $count =  count($request->images);
-            $product_last_id = DB::getPdo()->lastInsertId();
-            for ($i = 0; $i < count($request->images); $i++) {
-                $images = $request->images;
-                $image = $images[$i];
-                $name = time() . $i . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('image/gallary-product');
-                $image->move($destinationPath, $name);
-                $image_url = 'image/gallary-product/' . $name;
-                $gallary_product_id= $id;
-                DB::insert('insert into product_image(product_id,image_url)value(?,?)',[$gallary_product_id,$image_url]);
-            }
+            DB::table('product')->where('id',$id)->update($data);
 
             // successfully message
 		    Session::flash('message',' Updated successfully!');

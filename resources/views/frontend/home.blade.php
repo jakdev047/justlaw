@@ -461,6 +461,39 @@
 	</div>
 	<!-- /section -->
 
+    <!-- product item -->
+    <div class="just-product">
+        <div class="container">
+            @php
+                $product = DB::table('product')->get();
+            @endphp
+            <div class="row">
+                @foreach($product as $item)
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product product-single">
+                            <div class="product-thumb">
+                                {{-- <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button> --}}
+                                <img src="{{$item->feature_image}}" alt="">
+                            </div>
+                            <div class="product-body">
+							<h3 class="product-price">৳{{$item->flate_price}}</h3>
+							<h2 class="product-name"><a href="#">{{$item->title}}</a></h2>
+							<div class="product-btns">
+                                <small class="price-del"><del>৳{{$item->regular_price}}</del></small>
+                                <h3 class="price">
+                                    <a class="btn btn-success" href="{{ url('single-product/'.$item->id) }}"> Detail </a>
+                                    <a class="btn btn-success" href="{{ url('add-to-cart/'.$item->id) }}"> Add  Cart </a>
+                                </h3>
+							</div>
+						</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- product-iem-->
+
 	<!-- section -->
 	<div class="section">
 		<!-- container -->
