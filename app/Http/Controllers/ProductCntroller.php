@@ -165,4 +165,12 @@ class ProductCntroller extends Controller
             return redirect()->route('login');
         }
     }
+
+    // cart page ui
+    public function cart() {
+        return view('frontend.cart');
+    }
+
+    // add to cart
+    public function addToCart($id) {}
 }

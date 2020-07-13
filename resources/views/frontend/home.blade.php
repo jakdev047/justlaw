@@ -79,7 +79,7 @@
 				<div class="pull-left">
 					<!-- Logo -->
 					<div class="header-logo">
-						<a class="logo" href="#">
+						<a class="logo" href="{{route('home')}}">
 							<img src="{{asset('frontend/img/logo.png')}}" alt="">
 						</a>
 					</div>
@@ -160,8 +160,8 @@
 										</div>
 									</div>
 									<div class="shopping-cart-btns">
-										<button class="main-btn">View Cart</button>
-										<button class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></button>
+										<a href="{{route('cart')}}" class="main-btn">View Cart</a>
+										<a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
 									</div>
 								</div>
 							</div>

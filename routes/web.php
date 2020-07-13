@@ -65,3 +65,7 @@ Route::post('/proupdate/{id}', 'ProductCntroller@proupdate')->name('proupdate');
 // gallary product
 Route::get('/showgallaryall','GallaryProductController@showgallaryall')->name('showgallaryall');
 Route::get('/gallarydelete/{id}','GallaryProductController@gallarydelete')->name('gallarydelete');
+
+// cart
+Route::get('/cart', 'ProductCntroller@cart')->name('cart');
+Route::get('/add-to-cart/{id}', 'ProductsController@addToCart');
