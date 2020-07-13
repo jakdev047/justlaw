@@ -129,7 +129,11 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<div class="header-btns-icon">
 									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">3</span>
+									<span class="qty">
+                                        @if(session('cart')!==null)
+                                        {{ count(session('cart')) }}
+                                        @endif
+                                    </span>
 								</div>
 								<strong class="text-uppercase">My Cart:</strong>
 								<br>
@@ -521,7 +525,7 @@
                                         <div class="product-btns">
                                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                            <a href="{{url('add-to-cart/'.$item->id) }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                                         </div>
                                     </div>
                                 </div>

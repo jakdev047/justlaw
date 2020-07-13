@@ -129,7 +129,11 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<div class="header-btns-icon">
 									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">3</span>
+									<span class="qty">
+                                        @if(session('cart')!==null)
+                                        {{ count(session('cart')) }}
+                                        @endif
+                                    </span>
 								</div>
 								<strong class="text-uppercase">My Cart:</strong>
 								<br>

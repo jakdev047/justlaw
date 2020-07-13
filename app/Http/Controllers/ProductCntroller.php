@@ -172,5 +172,54 @@ class ProductCntroller extends Controller
     }
 
     // add to cart
-    public function addToCart($id) {}
+    public function addToCart($id) {
+        $product = DB::table('product')->where('id', $id)->first();
+
+        if(!$product) {
+            abort(404);
+        }
+
+        $cart = session()->get('cart');
+
+        // if cart is empty then this the first product
+        if(!$cart) {
+            $cart = [
+                $id => [
+                    "id" =>$product->id,
+                    "title" => $product->title,
+                    "quantity" => 1,
+                    "buy_price" => $product->buy_price,
+                    "feature_image" => $product->feature_image
+                ]
+            ];
+
+            session()->put('cart', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+
+            $cart[$id]['quantity']++;
+
+            session()->put('cart', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+        }
+
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+            "id" =>$product->id,
+            "title" => $product->title,
+            "quantity" => 1,
+            "buy_price" => $product->buy_price,
+            "feature_image" => $product->feature_image
+        ];
+
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
 }
