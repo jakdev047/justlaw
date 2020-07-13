@@ -141,28 +141,27 @@
 							</a>
 							<div class="custom-menu">
 								<div id="shopping-cart">
-									<div class="shopping-cart-list">
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="{{asset('frontend/img/thumb-product01.jpg')}}" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="{{asset('frontend/img/thumb-product01.jpg')}}" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-									</div>
+
+                                    <?php $total = 0 ?>
+                                    @if(session('cart'))
+                                        @foreach(session('cart') as $id => $details)
+                                            <div class="shopping-cart-list">
+                                                <div class="product product-widget">
+                                                    <div class="product-thumb">
+                                                        <img src="{{$details['feature_image']}}" alt="">
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <h3 class="product-price">
+                                                            ${{$details['buy_price']}} <span class="qty">x{{$details['quantity']}}</span>
+                                                        </h3>
+                                                        <h2 class="product-name"><a href="#">{{$details['title']}}</a></h2>
+                                                    </div>
+                                                    <button class="cancel-btn"><i class="fa fa-trash"></i></button>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
+
 									<div class="shopping-cart-btns">
 										<a href="{{route('cart')}}" class="main-btn">View Cart</a>
 										<a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
