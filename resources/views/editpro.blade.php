@@ -67,6 +67,10 @@
                     </textarea>
                 </div>
                 <div class="form-group">
+                    <label class="sr-only" for="product_position">Product Position</label>
+                    <input type="text" class="form-control" name="product_position" value="{{$product->product_position}}"  id="product_position" placeholder="Product Position" >
+                </div>
+                <div class="form-group">
                     <label for="old_photo">Old Photo</label> <br>
                     <img    src="{{URL::to($product->feature_image)}}"
                             name="old_photo"

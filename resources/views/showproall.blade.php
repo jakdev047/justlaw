@@ -20,6 +20,7 @@
             <th class="hidden-phone">Feature Image</th>
             <th class="hidden-phone">Rating</th>
             <th class="hidden-phone">Product Info</th>
+            <th class="hidden-phone">Product status</th>
             <th class="hidden-phone">Action</th>
             </tr>
         </thead>
@@ -44,6 +45,7 @@
                 </td>
                 <td class="hidden-phone"><?php echo $item->rating;?></td>
                 <td class="hidden-phone"><?php echo $item->product_info;?></td>
+                <td class="hidden-phone"><?php echo $item->product_position;?></td>
                 <td class="center hidden-phone">
                     <a href="{{url('proedit')}}/{{$item->id}}">Edit</a> || <a href="{{url('prodelete')}}/{{$item->id}}">Delete</a>
                     {{-- <a href="{{url('catedit')}}/{{$item->id}}">Edit</a> || <a href="{{url('catdelete')}}/{{$item->id}}">Delete</a> --}}

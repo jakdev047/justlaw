@@ -52,6 +52,10 @@
                     <textarea name="product_info" id="product_info" class="form-control" placeholder="Product Info" required></textarea>
                 </div>
                 <div class="form-group">
+                    <label class="sr-only" for="product_position">Product Position</label>
+                    <input type="text" class="form-control" name="product_position" id="product_position" placeholder="Product Position" >
+                </div>
+                <div class="form-group">
                     <label class="sr-only" for="feature_image">Feature Image</label>
                     <input type="file" class="form-control" name="feature_image"  onchange="readURL(this);" required >
                     <img id="image" src="#" alt="">

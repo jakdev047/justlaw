@@ -36,6 +36,7 @@ class ProductCntroller extends Controller
             $data['rating'] = $request->rating;
             $data['product_info'] = $request->product_info;
             $data['cat_id'] = $request->cat_id;
+            $data['product_position'] = $request->product_position;
 
             // feature image insert
             $feature_image = $request->file('feature_image');
@@ -127,6 +128,7 @@ class ProductCntroller extends Controller
             $data['rating'] = $request->rating;
             $data['product_info'] = $request->product_info;
             $data['cat_id'] = $request->cat_id;
+            $data['product_position'] = $request->product_position;
 
             // var_dump($data);
             // exit();

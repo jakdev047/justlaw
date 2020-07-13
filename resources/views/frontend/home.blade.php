@@ -478,7 +478,7 @@
                             <div class="product-body">
 							<h3 class="product-price">৳{{$item->flate_price}}</h3>
 							<h2 class="product-name"><a href="#">{{$item->title}}</a></h2>
-							<div class="product-btns">
+							<div class="product-btn">
                                 <small class="price-del"><del>৳{{$item->regular_price}}</del></small>
                                 <h3 class="price">
                                     <a class="btn btn-success" href="{{ url('single-product/'.$item->id) }}"> Detail </a>
