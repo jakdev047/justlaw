@@ -129,43 +129,47 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<div class="header-btns-icon">
 									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">
-                                        @if(session('cart')!==null)
-                                        {{ count(session('cart')) }}
-                                        @endif
-                                    </span>
+                                    @if(session('cart')!==null)
+                                        <span class="qty">{{ count(session('cart')) }}</span>
+                                    @endif
 								</div>
 								<strong class="text-uppercase">My Cart:</strong>
 								<br>
-								<span>35.20$</span>
+								<span>
+                                    <?php $total = 0 ?>
+                                    @if(session('cart'))
+                                        @foreach(session('cart') as $id => $details)
+                                            <?php $total += $details['buy_price'] * $details['quantity'] ?>
+                                        @endforeach
+                                    @endif
+                                    <?php echo $total; ?>
+                                </span>
 							</a>
 							<div class="custom-menu">
 								<div id="shopping-cart">
-                                    
-									<?php $total = 0 ?>
-                                    @if(session('cart'))
-                                        @foreach(session('cart') as $id => $details)
-                                            <div class="shopping-cart-list">
-                                                <div class="product product-widget">
-                                                    <div class="product-thumb">
-                                                        <img src="{{$details['feature_image']}}" alt="">
-                                                    </div>
-                                                    <div class="product-body">
-                                                        <h3 class="product-price">
-                                                            ${{$details['buy_price']}} <span class="qty">x{{$details['quantity']}}</span>
-                                                        </h3>
-                                                        <h2 class="product-name"><a href="#">{{$details['title']}}</a></h2>
-                                                    </div>
-                                                    <button class="cancel-btn"><i class="fa fa-trash"></i></button>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
+                                    <div class="shopping-cart-list">
+                                        @if(session('cart'))
+                                            @foreach(session('cart') as $id => $details)
 
-									<div class="shopping-cart-btns">
-										<a href="{{route('cart')}}" class="main-btn">View Cart</a>
-										<a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-									</div>
+                                                    <div class="product product-widget">
+                                                        <div class="product-thumb">
+                                                            <img src="{{$details['feature_image']}}" alt="">
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <h3 class="product-price">
+                                                                ${{$details['buy_price']}} <span class="qty">x{{$details['quantity']}}</span>
+                                                            </h3>
+                                                            <h2 class="product-name"><a href="#">{{$details['title']}}</a></h2>
+                                                        </div>
+                                                        <button class="cancel-btn"><i class="fa fa-trash"></i></button>
+                                                    </div>
+                                            @endforeach
+                                        @endif
+                                        <div class="shopping-cart-btns">
+                                            <a href="{{route('cart')}}" class="main-btn">View Cart</a>
+                                            <a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</li>
@@ -524,7 +528,9 @@
                                         <div class="product-btns">
                                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                            <a href="{{url('add-to-cart/'.$item->id) }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                            <a href="{{url('add-to-cart/'.$item->id) }}" class="primary-btn add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -613,7 +619,9 @@
                                         <div class="product-btns">
                                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                            <a href="{{url('add-to-cart/'.$item->id) }}" class="primary-btn add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
