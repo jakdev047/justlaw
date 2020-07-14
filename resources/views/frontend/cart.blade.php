@@ -373,8 +373,8 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-				<form id="checkout-form" class="clearfix">
-					<div class="col-md-6">
+				{{-- <form id="checkout-form" class="clearfix"> --}}
+					{{-- <div class="col-md-6">
 						<div class="billing-details">
 							<p>Already a customer ? <a href="#">Login</a></p>
 							<div class="section-title">
@@ -416,9 +416,9 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 
-					<div class="col-md-6">
+					{{-- <div class="col-md-6">
 						<div class="shiping-methods">
 							<div class="section-title">
 								<h4 class="title">Shiping Methods</h4>
@@ -470,7 +470,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 
 					<div class="col-md-12">
 						<div class="order-summary clearfix">
@@ -492,36 +492,43 @@
                                     <?php $total = 0 ?>
                                     @if(session('cart'))
                                         @foreach(session('cart') as $id => $details)
-
-
-                                            <tr>
-                                                <td class="thumb"><img src="{{$details['feature_image']}}" alt=""></td>
-                                                <td class="details">
-                                                    <a href="#">{{$details['title']}}</a>
-                                                </td>
-                                                <td class="price text-center"><strong>${{$details['buy_price']}}</strong></td>
-                                                <td class="qty text-center">
-                                                    <input class="input" type="number" value="{{ $details['quantity'] }}">
-                                                </td>
-                                                <td class="total text-center">
-                                                    <strong class="primary-color">
-                                                        $
-                                                        @php
-                                                            echo  $details['buy_price'] * $details['quantity']
-                                                        @endphp
-                                                    </strong>
-                                                </td>
-                                                <td class="text-right"><button class="main-btn icon-btn"><i class="fa fa-close"></i></button></td>
-                                            </tr>
+                                        <tr>
+                                            <td class="thumb"><img src="{{$details['feature_image']}}" alt=""></td>
+                                            <td class="details">
+                                            <a href="#">{{$details['title']}}</a>
+                                            </td>
+                                            <td class="price text-center"><strong>${{$details['buy_price']}}</strong></td>
+                                            <td class="qty text-center" data-th="Quantity">
+                                                <input class="input" type="number" id="qty" value="{{ $details['quantity'] }}">
+                                            </td>
+                                            <td class="total text-center">
+                                                <strong class="primary-color">
+                                                    $ @php echo  $details['buy_price'] * $details['quantity'] @endphp
+                                                </strong>
+                                            </td>
+                                            <td class="text-right" data-th="">
+                                                <button class="main-btn icon-btn update-cart" data-id="{{ $id }}">
+                                                    <i class="fa fa-refresh"></i>
+                                                </button>
+                                                <button class="main-btn icon-btn"><i class="fa fa-close"></i></button>
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     @endif
-
 								</tbody>
 								<tfoot>
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>SUBTOTAL</th>
-										<th colspan="2" class="sub-total">${{$total}}</th>
+										<th colspan="2" class="sub-total">
+                                            <?php $total = 0 ?>
+                                            @if(session('cart'))
+                                                @foreach(session('cart') as $id => $details)
+                                                    <?php $total += $details['buy_price'] * $details['quantity'] ?>
+                                                @endforeach
+                                            @endif
+                                            <?php echo $total; ?>
+                                        </th>
 									</tr>
 									<tr>
 										<th class="empty" colspan="3"></th>
@@ -531,8 +538,16 @@
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>TOTAL</th>
-										<th colspan="2" class="total">${{$total}}</th>
-									</tr>
+										<th colspan="2" class="total">
+                                            <?php $total = 0 ?>
+                                            @if(session('cart'))
+                                                @foreach(session('cart') as $id => $details)
+                                                    <?php $total += $details['buy_price'] * $details['quantity'] ?>
+                                                @endforeach
+                                            @endif
+                                            <?php echo $total; ?>
+                                        </th>
+                                    </tr>
 								</tfoot>
 							</table>
 							<div class="pull-right">
@@ -541,7 +556,7 @@
 						</div>
 
 					</div>
-				</form>
+				{{-- </form> --}}
 			</div>
 			<!-- /row -->
 		</div>
@@ -652,6 +667,27 @@
 	<script src="{{asset('frontend/js/nouislider.min.js')}}"></script>
 	<script src="{{asset('frontend/js/jquery.zoom.min.js')}}"></script>
 	<script src="{{asset('frontend/js/main.js')}}"></script>
+
+    <script type="text/javascript">
+
+        $(".update-cart").click(function (e) {
+          e.preventDefault();
+
+          var ele = $(this);
+
+          var qty = document.getElementById('qty').value;
+
+          $.ajax({
+            url: '{{ url('update-cart') }}',
+            method: "patch",
+            data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: qty },
+            success: function (response) {
+              window.location.reload();
+            }
+          });
+        });
+
+    </script>
 
 </body>
 
