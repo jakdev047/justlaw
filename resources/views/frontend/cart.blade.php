@@ -510,7 +510,7 @@
                                                 <button class="main-btn icon-btn update-cart" data-id="{{ $id }}">
                                                     <i class="fa fa-refresh"></i>
                                                 </button>
-                                                <button class="main-btn icon-btn"><i class="fa fa-close"></i></button>
+                                                <button class="main-btn icon-btn remove-from-cart" data-id="{{ $id }}"><i class="fa fa-close"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -685,6 +685,23 @@
               window.location.reload();
             }
           });
+        });
+
+        $(".remove-from-cart").click(function (e) {
+            e.preventDefault();
+
+            var ele = $(this);
+
+            if(confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('remove-from-cart') }}',
+                    method: "DELETE",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            }
         });
 
     </script>
