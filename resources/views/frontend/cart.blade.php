@@ -130,45 +130,45 @@
 								<div class="header-btns-icon">
 									<i class="fa fa-shopping-cart"></i>
 									@if(session('cart')!==null)
-                                        <span class="qty">{{ count(session('cart')) }}</span>
-                                    @endif
+                    <span class="qty">{{ count(session('cart')) }}</span>
+                  @endif
 								</div>
 								<strong class="text-uppercase">My Cart:</strong>
 								<br>
 								<span>
-                                    <?php $total = 0 ?>
-                                    @if(session('cart'))
-                                        @foreach(session('cart') as $id => $details)
-                                            <?php $total += $details['buy_price'] * $details['quantity'] ?>
-                                        @endforeach
-                                    @endif
-                                    <?php echo $total; ?>
-                                </span>
+                  <?php $total = 0 ?>
+                  @if(session('cart'))
+                      @foreach(session('cart') as $id => $details)
+                          <?php $total += $details['buy_price'] * $details['quantity'] ?>
+                      @endforeach
+                  @endif
+                  <?php echo $total; ?>
+              </span>
 							</a>
 							<div class="custom-menu">
 								<div id="shopping-cart">
-                                    <div class="shopping-cart-list">
-                                        @if(session('cart'))
-                                            @foreach(session('cart') as $id => $details)
-                                                    <div class="product product-widget">
-                                                        <div class="product-thumb">
-                                                            <img src="{{$details['feature_image']}}" alt="">
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <h3 class="product-price">
-                                                                ${{$details['buy_price']}} <span class="qty">x{{$details['quantity']}}</span>
-                                                            </h3>
-                                                            <h2 class="product-name"><a href="#">{{$details['title']}}</a></h2>
-                                                        </div>
-                                                        <button class="cancel-btn"><i class="fa fa-trash"></i></button>
-                                                    </div>
-                                            @endforeach
-                                        @endif
-                                        <div class="shopping-cart-btns">
-                                            <a href="{{route('cart')}}" class="main-btn">View Cart</a>
-                                            <a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
+                  <div class="shopping-cart-list">
+                      @if(session('cart'))
+                          @foreach(session('cart') as $id => $details)
+                                  <div class="product product-widget">
+                                      <div class="product-thumb">
+                                        <img src="{{$details['feature_image']}}" alt="">
+                                      </div>
+                                      <div class="product-body">
+                                          <h3 class="product-price">
+                                              ${{$details['buy_price']}} <span class="qty">x{{$details['quantity']}}</span>
+                                          </h3>
+                                          <h2 class="product-name"><a href="#">{{$details['title']}}</a></h2>
+                                      </div>
+                                      <button class="cancel-btn"><i class="fa fa-trash"></i></button>
+                                  </div>
+                          @endforeach
+                      @endif
+                      <div class="shopping-cart-btns">
+                          <a href="{{route('cart')}}" class="main-btn">View Cart</a>
+                          <a href="{{route('cart')}}" class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                      </div>
+                  </div>
 								</div>
 							</div>
 						</li>
@@ -489,46 +489,49 @@
 									</tr>
 								</thead>
 								<tbody>
-                                    <?php $total = 0 ?>
-                                    @if(session('cart'))
-                                        @foreach(session('cart') as $id => $details)
-                                        <tr>
-                                            <td class="thumb"><img src="{{$details['feature_image']}}" alt=""></td>
-                                            <td class="details">
-                                            <a href="#">{{$details['title']}}</a>
-                                            </td>
-                                            <td class="price text-center"><strong>${{$details['buy_price']}}</strong></td>
-                                            <td class="qty text-center" data-th="Quantity">
-                                                <input class="input" type="number" id="qty" value="{{ $details['quantity'] }}">
-                                            </td>
-                                            <td class="total text-center">
-                                                <strong class="primary-color">
-                                                    $ @php echo  $details['buy_price'] * $details['quantity'] @endphp
-                                                </strong>
-                                            </td>
-                                            <td class="text-right" data-th="">
-                                                <button class="main-btn icon-btn update-cart" data-id="{{ $id }}">
-                                                    <i class="fa fa-refresh"></i>
-                                                </button>
-                                                <button class="main-btn icon-btn remove-from-cart" data-id="{{ $id }}"><i class="fa fa-close"></i></button>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    @endif
+                  <?php $total = 0 ?>
+                  @if(session('cart'))
+                      @foreach(session('cart') as $id => $details)
+                      <tr>
+                          <td class="thumb"><img src="{{$details['feature_image']}}" alt=""></td>
+                          <td class="details">
+                          <a href="#">{{$details['title']}}</a>
+                          </td>
+                          <td class="price text-center"><strong>${{$details['buy_price']}}</strong></td>
+                          <td class="qty text-center" data-th="Quantity">
+                                <input type="number" value="{{ $details['quantity'] }}" class="input quantity" />
+                            </td>
+                          {{-- <td class="qty text-center" data-th="Quantity">
+                              <input class="input quantity" type="number" value="{{ $details['quantity'] }}">
+                          </td> --}}
+                          <td class="total text-center">
+                              <strong class="primary-color">
+                                  $ @php echo  $details['buy_price'] * $details['quantity'] @endphp
+                              </strong>
+                          </td>
+                          <td class="text-right" data-th="">
+                              <button class="main-btn icon-btn update-cart" data-id="{{ $id }}">
+                                  <i class="fa fa-refresh"></i>
+                              </button>
+                              <button class="main-btn icon-btn remove-from-cart" data-id="{{ $id }}"><i class="fa fa-close"></i></button>
+                          </td>
+                      </tr>
+                      @endforeach
+                    @endif
 								</tbody>
 								<tfoot>
 									<tr>
 										<th class="empty" colspan="3"></th>
 										<th>SUBTOTAL</th>
 										<th colspan="2" class="sub-total">
-                                            <?php $total = 0 ?>
-                                            @if(session('cart'))
-                                                @foreach(session('cart') as $id => $details)
-                                                    <?php $total += $details['buy_price'] * $details['quantity'] ?>
-                                                @endforeach
-                                            @endif
-                                            <?php echo $total; ?>
-                                        </th>
+                      <?php $total = 0 ?>
+                      @if(session('cart'))
+                          @foreach(session('cart') as $id => $details)
+                              <?php $total += $details['buy_price'] * $details['quantity'] ?>
+                          @endforeach
+                      @endif
+                      <?php echo $total; ?>
+                    </th>
 									</tr>
 									<tr>
 										<th class="empty" colspan="3"></th>
@@ -547,7 +550,7 @@
                                             @endif
                                             <?php echo $total; ?>
                                         </th>
-                                    </tr>
+                                        </tr>
 								</tfoot>
 							</table>
 							<div class="pull-right">
@@ -675,12 +678,12 @@
 
           var ele = $(this);
 
-          var qty = document.getElementById('qty').value;
+          alert( ele.parents("tr").find(".quantity").val());
 
           $.ajax({
             url: '{{ url('update-cart') }}',
             method: "patch",
-            data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: qty },
+            data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val() },
             success: function (response) {
               window.location.reload();
             }

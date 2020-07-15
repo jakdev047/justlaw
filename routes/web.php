@@ -69,5 +69,5 @@ Route::get('/gallarydelete/{id}','GallaryProductController@gallarydelete')->name
 // cart
 Route::get('/cart', 'ProductCntroller@cart')->name('cart');
 Route::get('/add-to-cart/{id}', 'ProductCntroller@addToCart');
-Route::patch('update-cart', 'ProductCntroller@update');
+Route::patch('/update-cart', 'ProductCntroller@update');
 Route::delete('remove-from-cart', 'ProductCntroller@remove');
